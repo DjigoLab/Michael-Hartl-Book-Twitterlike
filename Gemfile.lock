@@ -42,6 +42,7 @@ GEM
     arel (8.0.0)
     autoprefixer-rails (9.6.1.1)
       execjs
+    bcrypt (3.1.12)
     bindex (0.8.1)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
@@ -88,7 +89,7 @@ GEM
       thor (>= 0.14, < 2.0)
     listen (3.1.5)
       rb-inotify (~> 0.9, >= 0.9.7)
-    loofah (2.2.3)
+    loofah (2.3.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     lumberjack (1.0.13)
@@ -199,6 +200,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt (= 3.1.12)
   bootstrap-sass (= 3.3.7)
   byebug (= 9.0.6)
   coffee-rails (= 4.2.2)
