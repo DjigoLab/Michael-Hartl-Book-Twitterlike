@@ -17,13 +17,12 @@ class User < ApplicationRecord
 
     validates :password,
         presence: true,
-        length: { minimum: 6 }
-
-
+        length: { minimum: 6 },
+        allow_nil: true
 
     has_secure_password
 
-      # Returns the hash digest of the given string.
+  # Returns the hash digest of the given string.
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
@@ -41,5 +40,9 @@ class User < ApplicationRecord
     self.remember_token = User.new_token
     update_attribute(:remember_digest, User.digest(remember_token))
     end
+
+    def forget
+      update_attribute(:remember_digest, nil)
+      end
 
 end
