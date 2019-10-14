@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
 
+  before_create :create_activation_digest
+
   def index
     @users = User.paginate(page: params[:page])
   end
@@ -75,4 +77,7 @@ private
     redirect_to(root_url) unless current_user.admin?
   end
 
+  def create_activation_digest
+    # Create the token and digest.
+  end
 end
